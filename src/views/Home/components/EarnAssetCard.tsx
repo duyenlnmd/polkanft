@@ -8,10 +8,10 @@ import { Pool } from 'state/types'
 import { useTranslation } from 'contexts/Localization'
 
 const StyledFarmStakingCard = styled(Card)`
-  background: linear-gradient(#53dee9, #7645d9);
   margin-left: auto;
   margin-right: auto;
   width: 100%;
+  background: linear-gradient(#53dee9, #7645d9);
   ${({ theme }) => theme.mediaQueries.lg} {
     margin: 0;
     max-width: none;
@@ -41,15 +41,15 @@ const EarnAssetCard = () => {
     <StyledFarmStakingCard>
       <NavLink exact activeClassName="active" to="/syrup" id="pool-cta">
         <CardBody>
-          <Heading color="contrast" scale="lg">
+          <Heading color="white" scale="lg">
             {earn}
           </Heading>
           <CardMidContent color="invertedContrast">{assets}</CardMidContent>
           <Flex justifyContent="space-between">
-            <Heading color="contrast" scale="lg">
+            <Heading color="white" scale="lg">
               {InPools}
             </Heading>
-            <ArrowForwardIcon mt={30} color="primary" />
+            <ArrowForwardIcon mt={30} color="white" />
           </Flex>
         </CardBody>
       </NavLink>

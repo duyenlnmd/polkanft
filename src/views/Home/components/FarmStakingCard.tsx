@@ -11,10 +11,9 @@ import CakeHarvestBalance from './CakeHarvestBalance'
 import CakeWalletBalance from './CakeWalletBalance'
 
 const StyledFarmStakingCard = styled(Card)`
-  background-image: url('/images/cake-bg.svg');
-  background-repeat: no-repeat;
-  background-position: top right;
   max-height: 359px;
+  background: linear-gradient(#2196F3, #1976D2);
+  color: white;
 `
 
 const Block = styled.div`
@@ -26,8 +25,11 @@ const CardImage = styled.img`
 `
 
 const Label = styled.div`
-  color: ${({ theme }) => theme.colors.textSubtle};
+  // color: ${({ theme }) => theme.colors.textSubtle};
+  color: white;
   font-size: 14px;
+  text-transform: uppercase;
+  font-weight: bold;
 `
 
 const Actions = styled.div`
@@ -57,9 +59,9 @@ const FarmedStakingCard = () => {
   }, [account, balancesWithValue, masterChefContract])
 
   return (
-    <StyledFarmStakingCard>
+    <StyledFarmStakingCard className="bg-blue-700">
       <CardBody>
-        <Heading scale="xl" mb="24px">
+        <Heading scale="xl" mb="24px" color='white'>
           {t('Farms & Staking')}
         </Heading>
         {/* <CardImage src="/images/cake.svg" alt="cake logo" width={64} height={64} /> */}

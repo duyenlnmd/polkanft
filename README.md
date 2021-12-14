@@ -1,2 +1,1 @@
 # Coming Soon: PolkaNFT
-#KT
