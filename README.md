@@ -1,2 +1,2 @@
-# Coming Soon: BEST NFT Marketplace
-#Kim Thanh
+# Coming Soon: PolkaNFT
+#KT
