@@ -1,1 +1,1 @@
-# Coming Soon: BEST NFT Marketplace
+# Coming Soon: PolkaNFT
