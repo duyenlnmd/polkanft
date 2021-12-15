@@ -93,7 +93,7 @@ const Home: React.FC = () => {
         <Heading as="h1" scale="xl" mb="24px" color="secondary">
           {t('PolkaNFT')}
         </Heading>
-              <Text>{t('The #1 AMM and yield farm on Binance Smart Chain.')}</Text>
+              <Text>{t('The #1 AMM and yield farm on Polkadot.')}</Text>
       </Hero>
       <div>
         <Cards>
@@ -112,10 +112,10 @@ const Home: React.FC = () => {
                 </Cards>
             </div>
         </Cards>
-        <Cards>
+        {/* <Cards> */}
             <CakeStats />
             {/* <FarmStakingCard /> */}
-        </Cards>
+        {/* </Cards> */}
       </div>
     </Page>
   )
