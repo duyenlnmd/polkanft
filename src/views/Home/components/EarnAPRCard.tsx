@@ -14,6 +14,7 @@ const StyledFarmStakingCard = styled(Card)`
   margin-left: auto;
   margin-right: auto;
   width: 100%;
+  background-color: #ff8561;
 
   ${({ theme }) => theme.mediaQueries.lg} {
     margin: 0;
@@ -73,10 +74,10 @@ const EarnAPRCard = () => {
     <StyledFarmStakingCard>
       <NavLink exact activeClassName="active" to="/farms" id="farm-apr-cta">
         <CardBody>
-          <Heading color="contrast" scale="lg">
+          <Heading color="white" scale="lg">
             {earnUpTo}
           </Heading>
-          <CardMidContent color="#7645d9">
+          <CardMidContent color="white">
             {highestApr && !isFetchingFarmData ? (
               `${highestApr}%`
             ) : (
@@ -84,7 +85,7 @@ const EarnAPRCard = () => {
             )}
           </CardMidContent>
           <Flex justifyContent="space-between">
-            <Heading color="contrast" scale="lg">
+            <Heading color="white" scale="lg">
               {InFarms}
             </Heading>
             <ArrowForwardIcon mt={30} color="primary" />

@@ -13,9 +13,7 @@ import WinCard from 'views/Home/components/WinCard'
 
 const Hero = styled.div`
   align-items: center;
-  background-image: url('/images/pan-bg-mobile.svg');
-  background-repeat: no-repeat;
-  background-position: top center;
+  background: #8bb9dd;
   display: flex;
   justify-content: center;
   flex-direction: column;
@@ -23,10 +21,9 @@ const Hero = styled.div`
   margin-bottom: 32px;
   padding-top: 116px;
   text-align: center;
+  color: white;
 
   ${({ theme }) => theme.mediaQueries.lg} {
-    background-image: url('/images/pan-bg2.svg'), url('/images/pan-bg.svg');
-    background-position: left center, right center;
     height: 165px;
     padding-top: 0;
   }
@@ -84,16 +81,17 @@ const CTACards = styled(BaseLayout)`
   }
 `
 
+
 const Home: React.FC = () => {
   const { t } = useTranslation()
 
   return (
     <Page>
-      <Hero>
-        <Heading as="h1" scale="xl" mb="24px" color="secondary">
+      <Hero className="rounded-xl">
+        <Heading as="h1" mb="24px" color="white">
           {t('PolkaNFT')}
         </Heading>
-              <Text>{t('The #1 AMM and yield farm on Polkadot.')}</Text>
+              <Text color="white">{t('The #1 AMM and yield farm on Binance Smart Chain.')}</Text>
       </Hero>
       <div>
         <Cards>
