@@ -38,13 +38,16 @@ const Menu: React.FC = ({ children }) => {
         }}
         {...props}
       /> */}
-      <nav className="flex justify-start items-center py-4 bg-white">
-        <div className="flex-shrink-0 ml-10 cursor-pointer">
-          <i className="fas fa-drafting-compass fa-2x text-orange-500" />
-          <img className="ml-1" src="https://dual.cafeswap.finance/images/cafe-logo-covid.svg" width={100} alt="" />
-        </div>
+      <nav className="flex justify-between items-center py-4 bg-white">
+        <a href="/">
+          <div className="flex-shrink-0 ml-10 cursor-pointer">
+            <i className="fas fa-drafting-compass fa-2x text-orange-500" />
+            <img className="ml-1" src="https://dual.cafeswap.finance/images/cafe-logo-covid.svg" width={100} alt="" />
+          </div>
+        </a>
+        
         <ul className="hidden md:flex overflow-x-hidden font-semibold">
-          <li className="flex items-center mx-3 px-2 py-2 text-gray-700 border-gray-100 cursor-pointer hover:bg-gray-100">
+          <li className="flex items-center mx-3 px-2 py-2 text-gray-700 border-gray-100 group cursor-pointer">
             <span className="mr-3">
               <span>
                 <img
@@ -55,11 +58,11 @@ const Menu: React.FC = ({ children }) => {
                 />
               </span>
             </span>
-            <a className="cursor-default text-blue-800" href="#/">
+            <a className="cursor-default group-hover:text-blue-500 text-blue-800" href="/exchange">
               Trade
             </a>
           </li>
-          <li className="flex items-center mx-3 px-2 py-2 text-gray-700 border-gray-100 cursor-pointer hover:bg-gray-100">
+          {/** <li className="flex items-center mx-3 px-2 py-2 text-gray-700 border-gray-100 cursor-pointer hover:bg-gray-100">
             <svg
               className="w-5 mr-3"
               focusable="false"
@@ -91,8 +94,8 @@ const Menu: React.FC = ({ children }) => {
             <a className="cursor-default text-blue-800" href="#/">
               Dual Farms
             </a>
-          </li>
-          <li className="flex items-center mx-3 px-2 py-2 text-gray-700 border-gray-100 cursor-pointer hover:bg-gray-100">
+          </li> */}
+          <li className="flex items-center mx-3 px-2 py-2 text-gray-700 border-gray-100 group cursor-pointer">
             <img
               className="mr-3"
               alt="Farms"
@@ -101,11 +104,12 @@ const Menu: React.FC = ({ children }) => {
               height={15}
               style={{ fill: 'darkblue' }}
             />
-            <a className="cursor-default text-blue-800" href="#/">
+            <a className="cursor-default group-hover:text-blue-500 text-blue-800" href="/farms">
               Farms
             </a>
           </li>
-          <li className="flex items-center mx-3 px-2 py-2 text-gray-700 border-gray-100 cursor-pointer hover:bg-gray-100">
+          <li className="flex items-center mx-3 px-2 py-2 text-gray-700 group border-gray-100 cursor-pointer">
+            <a href="/pools" className="inline-flex">
             <img
               className="mr-3"
               alt="Staking"
@@ -114,11 +118,12 @@ const Menu: React.FC = ({ children }) => {
               height={15}
               style={{ filter: 'none' }}
             />
-            <a className="cursor-default text-blue-800" href="#/">
-              Pools
+            <div className="cursor-default group-hover:text-blue-500 text-blue-800">
+              Liquidity
+            </div>
             </a>
           </li>
-          <li className="flex items-center mx-3 px-2 py-2 text-gray-700 border-gray-100 cursor-pointer hover:bg-gray-100">
+          {/** <li className="flex items-center mx-3 px-2 py-2 text-gray-700 border-gray-100 cursor-pointer hover:bg-gray-100">
             <img
               className="mr-3"
               alt="Staking"
@@ -215,7 +220,7 @@ const Menu: React.FC = ({ children }) => {
                 </div>
               </div>
             </div>
-          </li>
+          </li> */}
           <div className="flex align-items-center">
             <button className="mr-3" tabIndex={0} type="button">
               <span className="w-3">
@@ -242,12 +247,12 @@ const Menu: React.FC = ({ children }) => {
                 transform: 'scale(0.8)',
               }}
             >
-              <span className="MuiButton-label">
-                <p className="text-truncate p-0 m-0">Connect Wallet</p>
+              <span className="">
+                <p className="text-truncate p-2 text-lg m-0">Connect Wallet</p>
               </span>
               <span className="MuiTouchRipple-root" />
             </button>
-            <li className="border-r-2 w-5" />
+            {/** <li className="border-r-2 w-5" />
             <button
               className="w-6 mr-3"
               tabIndex={0}
@@ -261,7 +266,7 @@ const Menu: React.FC = ({ children }) => {
               </span>
               <span className="MuiTouchRipple-root" />
             </button>
-            <button
+             <button
               className="w-6 mr-3"
               tabIndex={0}
               type="button"
@@ -360,7 +365,7 @@ const Menu: React.FC = ({ children }) => {
                   </svg>
                 </span>
               </a>
-            </div>
+            </div> */}
           </div>
         </ul>
       </nav>

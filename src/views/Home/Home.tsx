@@ -110,10 +110,10 @@ const Home: React.FC = () => {
                 </Cards>
             </div>
         </Cards>
-        <Cards>
+        {/* <Cards> */}
             <CakeStats />
             {/* <FarmStakingCard /> */}
-        </Cards>
+        {/* </Cards> */}
       </div>
     </Page>
   )
