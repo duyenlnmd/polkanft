@@ -29,3 +29,5 @@ export const connectorsByName: { [connectorName in ConnectorNames]: any } = {
 export const getLibrary = (provider): Web3 => {
   return provider
 }
+
+export const Injected = new InjectedConnector({ supportedChainIds: [1, 3, 4, 5, 52, 97] })

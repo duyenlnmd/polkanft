@@ -6,16 +6,32 @@ import { useTranslation } from 'contexts/Localization'
 import useTheme from 'hooks/useTheme'
 import useAuth from 'hooks/useAuth'
 import { usePriceCakeBusd, useProfile } from 'state/hooks'
+import { Injected } from 'utils/web3React'
 import config from './config'
 
 const Menu: React.FC = ({ children }) => {
-  const { account } = useWeb3React()
+  // const { account } = useWeb3React()
   const { login, logout } = useAuth()
   const { isDark, toggleTheme } = useTheme()
   const cakePriceUsd = usePriceCakeBusd()
   const { profile } = useProfile()
   const { currentLanguage, setLanguage, t } = useTranslation()
+  const { account, activate, active, deactivate, chainId, library, error } = useWeb3React()
 
+  async function connect() {
+    try {
+      await activate(Injected)
+    } catch (ex) {
+      console.log(ex)
+    }
+  }
+  async function disconnect() {
+    try {
+      await deactivate()
+    } catch (ex) {
+      console.log(ex)
+    }
+  }
   return (
     <div>
       {/* <UikitMenu
@@ -45,7 +61,7 @@ const Menu: React.FC = ({ children }) => {
             <img className="ml-1" src="https://dual.cafeswap.finance/images/cafe-logo-covid.svg" width={100} alt="" />
           </div>
         </a>
-        
+
         <ul className="hidden md:flex overflow-x-hidden font-semibold">
           <li className="flex items-center mx-3 px-2 py-2 text-gray-700 border-gray-100 group cursor-pointer">
             <span className="mr-3">
@@ -58,7 +74,7 @@ const Menu: React.FC = ({ children }) => {
                 />
               </span>
             </span>
-            <a className="cursor-default group-hover:text-blue-500 text-blue-800" href="/exchange">
+            <a className="cursor-pointer group-hover:text-blue-500 text-blue-800" href="/exchange">
               Trade
             </a>
           </li>
@@ -75,7 +91,7 @@ const Menu: React.FC = ({ children }) => {
               <path d="M7 8c-.55 0-1 .45-1 1v6c0 1.1.9 2 2 2h8c.55 0 1-.45 1-1s-.45-1-1-1H8V9c0-.55-.45-1-1-1z" />
               <path d="M20 3h-8c-1.1 0-2 .9-2 2v6c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-.5 8h-7c-.28 0-.5-.22-.5-.5V7h8v3.5c0 .28-.22.5-.5.5zM3 12c-.55 0-1 .45-1 1v6c0 1.1.9 2 2 2h8c.55 0 1-.45 1-1s-.45-1-1-1H4v-6c0-.55-.45-1-1-1z" />
             </svg>
-            <a className="cursor-default text-blue-800" href="#/">
+            <a className="cursor-pointer text-blue-800" href="#/">
               Vaults
             </a>
           </li>
@@ -91,7 +107,7 @@ const Menu: React.FC = ({ children }) => {
             >
               <path d="M19.77 7.23l.01-.01-3.72-3.72L15 4.56l2.11 2.11c-.94.36-1.61 1.26-1.61 2.33 0 1.38 1.12 2.5 2.5 2.5.36 0 .69-.08 1-.21v7.21c0 .55-.45 1-1 1s-1-.45-1-1V14c0-1.1-.9-2-2-2h-1V5c0-1.1-.9-2-2-2H6c-1.1 0-2 .9-2 2v16h10v-7.5h1.5v5c0 1.38 1.12 2.5 2.5 2.5s2.5-1.12 2.5-2.5V9c0-.69-.28-1.32-.73-1.77zM18 10c-.55 0-1-.45-1-1s.45-1 1-1 1 .45 1 1-.45 1-1 1zM8 18v-4.5H6L10 6v5h2l-4 7z" />
             </svg>
-            <a className="cursor-default text-blue-800" href="#/">
+            <a className="cursor-pointer text-blue-800" href="#/">
               Dual Farms
             </a>
           </li> */}
@@ -104,23 +120,21 @@ const Menu: React.FC = ({ children }) => {
               height={15}
               style={{ fill: 'darkblue' }}
             />
-            <a className="cursor-default group-hover:text-blue-500 text-blue-800" href="/farms">
+            <a className="cursor-pointer group-hover:text-blue-500 text-blue-800" href="/farms">
               Farms
             </a>
           </li>
           <li className="flex items-center mx-3 px-2 py-2 text-gray-700 group border-gray-100 cursor-pointer">
             <a href="/pools" className="inline-flex">
-            <img
-              className="mr-3"
-              alt="Staking"
-              src="https://cafeswap.finance/static/media/icon_Staking.a2c51c37.svg"
-              width={15}
-              height={15}
-              style={{ filter: 'none' }}
-            />
-            <div className="cursor-default group-hover:text-blue-500 text-blue-800">
-              Liquidity
-            </div>
+              <img
+                className="mr-3"
+                alt="Staking"
+                src="https://cafeswap.finance/static/media/icon_Staking.a2c51c37.svg"
+                width={15}
+                height={15}
+                style={{ filter: 'none' }}
+              />
+              <div className="cursor-pointer group-hover:text-blue-500 text-blue-800">Liquidity</div>
             </a>
           </li>
           {/** <li className="flex items-center mx-3 px-2 py-2 text-gray-700 border-gray-100 cursor-pointer hover:bg-gray-100">
@@ -132,7 +146,7 @@ const Menu: React.FC = ({ children }) => {
               height={15}
               style={{}}
             />
-            <a className="cursor-default text-blue-800" href="#/">
+            <a className="cursor-pointer text-blue-800" href="#/">
               ICO
             </a>
           </li>
@@ -150,7 +164,7 @@ const Menu: React.FC = ({ children }) => {
                 <path d="M21 6H3c-1.1 0-2 .9-2 2v8c0 1.1.9 2 2 2h18c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2zm-10 7H8v3H6v-3H3v-2h3V8h2v3h3v2zm4.5 2c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zm4-3c-.83 0-1.5-.67-1.5-1.5S18.67 9 19.5 9s1.5.67 1.5 1.5-.67 1.5-1.5 1.5z" />
               </svg>
             </span>
-            <a className="cursor-default text-blue-800" href="#/">
+            <a className="cursor-pointer text-blue-800" href="#/">
               Games
             </a>
             <svg
@@ -171,7 +185,7 @@ const Menu: React.FC = ({ children }) => {
               <div>
                 <button
                   type="button"
-                  className="hover:bg-gray-100 cursor-default flex items-center space-x-1 focus:outline-none"
+                  className="hover:bg-gray-100 cursor-pointer flex items-center space-x-1 focus:outline-none"
                 >
                   <span>
                     <svg
@@ -235,23 +249,44 @@ const Menu: React.FC = ({ children }) => {
                 </svg>
               </span>
             </button>
-            <button
-              className="pl-2 pr-2 connect-btn"
-              tabIndex={0}
-              type="button"
-              style={{
-                background: 'linear-gradient(140deg, darkblue 0%, rgb(0, 0, 0) 100%)',
-                color: 'white',
-                borderRadius: '5px',
-                textTransform: 'none',
-                transform: 'scale(0.8)',
-              }}
-            >
-              <span className="">
-                <p className="text-truncate p-2 text-lg m-0">Connect Wallet</p>
-              </span>
-              <span className="MuiTouchRipple-root" />
-            </button>
+            {active ? (
+              <button
+                type="button"
+                style={{
+                  background: 'darkblue',
+                  color: 'white',
+                  borderRadius: '5px',
+                  textTransform: 'none',
+                  transform: 'scale(0.8)',
+                  fontSize: '20px',
+                }}
+                className="px-7 connect-btn"
+              >
+                <a className="cursor-pointer" href="#/">
+                  <span className="">
+                    {`${account.slice(0, 2)}...${account.slice(account.length - 3, account.length)}`}
+                  </span>
+                </a>
+              </button>
+            ) : (
+              <button
+                className="pl-2 pr-2 connect-btn"
+                tabIndex={0}
+                type="button"
+                style={{
+                  background: 'linear-gradient(140deg, darkblue 0%, rgb(0, 0, 0) 100%)',
+                  color: 'white',
+                  borderRadius: '5px',
+                  textTransform: 'none',
+                  transform: 'scale(0.8)',
+                }}
+                onClick={connect}
+              >
+                <span className="">
+                  <p className="text-truncate p-2 text-lg m-0">Connect Wallet</p>
+                </span>
+              </button>
+            )}
             {/** <li className="border-r-2 w-5" />
             <button
               className="w-6 mr-3"
