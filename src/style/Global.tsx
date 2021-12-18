@@ -22,3 +22,4 @@ const GlobalStyle = createGlobalStyle`
 `
 
 export default GlobalStyle
+// background-color: ${({ theme }) => theme.colors.background};

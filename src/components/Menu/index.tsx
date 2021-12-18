@@ -62,7 +62,7 @@ const Menu: React.FC = ({ children }) => {
           </div>
         </a>
 
-        <ul className="hidden md:flex overflow-x-hidden font-semibold">
+        <ul className="hidden sm:flex overflow-x-hidden font-semibold">
           <li className="flex items-center mx-3 px-2 py-2 text-gray-700 border-gray-100 group cursor-pointer">
             <span className="mr-3">
               <span>
@@ -74,7 +74,7 @@ const Menu: React.FC = ({ children }) => {
                 />
               </span>
             </span>
-            <a className="cursor-pointer group-hover:text-blue-500 text-blue-800" href="/exchange">
+            <a className="cursor-pointer group-hover:text-blue-500 text-blue-800" href="https://testinglnmd.web.app">
               Trade
             </a>
           </li>
@@ -260,11 +260,11 @@ const Menu: React.FC = ({ children }) => {
                   transform: 'scale(0.8)',
                   fontSize: '20px',
                 }}
-                className="px-7 connect-btn"
+                className="px-9 connect-btn"
               >
                 <a className="cursor-pointer" href="#/">
                   <span className="">
-                    {`${account.slice(0, 2)}...${account.slice(account.length - 3, account.length)}`}
+                    {`${account.slice(0, 3)}...${account.slice(account.length - 5, account.length)}`}
                   </span>
                 </a>
               </button>

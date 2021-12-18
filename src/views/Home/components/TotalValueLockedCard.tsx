@@ -8,7 +8,7 @@ const StyledTotalValueLockedCard = styled(Card)`
   align-items: center;
   display: flex;
   flex: 1;
-  background-color: #ee9b17;
+  background-color: #5400ba;
 `
 
 const TotalValueLockedCard = () => {

@@ -13,7 +13,7 @@ import WinCard from 'views/Home/components/WinCard'
 
 const Hero = styled.div`
   align-items: center;
-  background: #8bb9dd;
+  background: transparent;
   display: flex;
   justify-content: center;
   flex-direction: column;
@@ -86,36 +86,40 @@ const Home: React.FC = () => {
   const { t } = useTranslation()
 
   return (
-    <Page>
-      <Hero className="rounded-xl">
-        <Heading as="h1" mb="24px" color="white">
-          {t('PolkaNFT')}
-        </Heading>
-              <Text color="white">{t('The #1 AMM and yield farm on Binance Smart Chain.')}</Text>
-      </Hero>
-      <div>
-        <Cards>
-            <FarmStakingCard />
-            <div style={{ }}>
-                <div className="mb-3">
-                    <TotalValueLockedCard />
-                </div>
-                <Cards>
-                    <div className="mr-3 mt-3">
-                        <EarnAPRCard />
-                    </div>
-                    <div className="mt-3 mt-3">
-                        <EarnAssetCard />
-                    </div>                    
-                </Cards>
-            </div>
-        </Cards>
-        {/* <Cards> */}
-            <CakeStats />
-            {/* <FarmStakingCard /> */}
-        {/* </Cards> */}
-      </div>
-    </Page>
+    <div> {/* bg-gradient-to-tr from-green-300 via-blue-500 to-purple-600 */}
+      <Page>
+        <Hero className="rounded-xl">
+          <h1 className="text-purple-700 text-5xl font-semibold">
+            PolkaNFT 
+          </h1>
+          <h2 className="text-black lg:text-md text-base font-semibold my-3">
+            The #1 AMM, Yield Farms and NFT Marketplace on Polkadot
+          </h2>
+        </Hero>
+        <div>
+          <Cards>
+              <FarmStakingCard />
+              <div style={{ }}>
+                  <div className="mb-3">
+                      <TotalValueLockedCard />
+                  </div>
+                  <Cards>
+                      <div className="mr-3 mt-3">
+                          <EarnAPRCard />
+                      </div>
+                      <div className="mt-3 mt-3">
+                          <EarnAssetCard />
+                      </div>                    
+                  </Cards>
+              </div>
+          </Cards>
+          {/* <Cards> 
+              <CakeStats />
+              {/* <FarmStakingCard /> */}
+          {/* </Cards> */}
+        </div>
+      </Page>
+    </div>
   )
 }
 
